@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int main(){
+ long int a,b,min=999,max=-999,min1=999,max1=-999,min_index,min_index1,max_index,max_index1,sum=0,i;
+    scanf("%ld%ld",&a,&b);
+    long int ar1[a],ar2[a];
+    for(i=0;i<a;i++)
+        scanf("%ld",&ar1[i]);
+      for(i=0;i<a;i++)
+        scanf("%ld",&ar2[i]);
+    for(i=0;i<a;i++)
+    {
+        if(ar1[i]<min)
+        {   min=ar1[i];
+            min_index=i;}
+        if(ar1[i]>max){
+            max=ar1[i];
+        max_index=i;
+        }
+        if(ar2[i]<min1){
+            min1=ar2[i];
+        min_index1=i;}
+        if(ar2[i]>max1){
+            max_index1=i;
+            max1=ar2[i];
+        }
+    }
+    if(min1<0)
+    {
+        ar1[min_index1]+=b*2;
+    }
+    else
+    {
+        ar1[max_index1]-=b*2;
+   
+    }
+    for(i=0;i<a;i++)
+        sum+=ar1[i]*ar2[i];
+    printf("%lld",sum);
+    return 0;
+}
